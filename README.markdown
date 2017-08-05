@@ -20,10 +20,15 @@ This is a redis-based queue for usage in Go. I evaluated a lot of other options 
 
 Adding jobs to a queue.
 
+Main author repo
 ```
 import "github.com/AgileBits/go-redis-queue/redisqueue"
 ```
 
+My repo with go-redis
+```
+import "github.com/Overflow3D/go-redis-queue/redisqueue"
+```
 ```
 conn := redis.NewClient(&redis.Options{
     Addr:     "localhost:6379",
