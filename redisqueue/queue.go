@@ -100,7 +100,7 @@ func resultArray(arr []interface{}) (results []string) {
 }
 
 func initRedisScript() *redis.Script {
-	return redis.NewScript(`		local name = KEYS[1]
+	return redis.NewScript(`local name = KEYS[1]
 	local timestamp = ARGV[1]
 	local limit = ARGV[2]
 	local results = redis.call('zrangebyscore', name, '-inf', timestamp, 'LIMIT', 0, limit)
