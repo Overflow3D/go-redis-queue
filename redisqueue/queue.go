@@ -53,6 +53,11 @@ func (q *Queue) FlushQueue() error {
 	return err
 }
 
+// RemoveMember removes member from zadd list
+func (q *Queue) RemoveMember(value string) (int64, error) {
+	return q.c.ZRem(q.Name, value).Result()
+}
+
 // Pop removes and returns a single job from the queue. Safe for concurrent use (multiple goroutines must use their own Queue objects and redis connections)
 func (q *Queue) Pop() (string, error) {
 	jobs, err := q.PopJobs(1)

@@ -32,6 +32,13 @@ func TestQueueTasks(t *testing.T) {
 	assert.NoError(t, err)
 	assert.False(t, added, "expects item not to be added")
 
+	added, err = q.Push("item to remove")
+	assert.NoError(t, err)
+	assert.True(t, added, "expects item to be added")
+
+	_, err = q.RemoveMember("item to remove")
+	assert.NoError(t, err)
+
 	pending, err := q.Pending()
 	assert.NoError(t, err)
 	assert.Equal(t, int64(1), pending, "expects 1 job pending in queue")
