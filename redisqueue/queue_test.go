@@ -32,7 +32,7 @@ func TestQueueTasks(t *testing.T) {
 	assert.NoError(t, err)
 	assert.False(t, added, "expects item not to be added")
 
-	added, err = q.Push("item to remove")
+	added, err = q.Push("item to add")
 	assert.NoError(t, err)
 	assert.True(t, added, "expects item to be added")
 
